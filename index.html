@@ -1,246 +1,113 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>循书集｜数字型录</title>
   <style>
-    :root {
-      --bg: #f6f2ea;
-      --paper: #fcfaf6;
-      --ink: #2e5a47;
-      --line: #d9d1c4;
-      --shadow: 0 12px 30px rgba(65, 54, 35, 0.08);
-      --radius: 22px;
-      --max: 1100px;
+    body{
+      margin:0;
+      background:#f6f2ea;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      color:#2e5a47;
     }
 
-    * {
-      box-sizing: border-box;
+    .wrap{
+      width:min(1100px,95%);
+      margin:0 auto;
+      padding:28px 0 60px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .top{
+      background:#fcfaf6;
+      border:1px solid #d9d1c4;
+      border-radius:24px;
+      padding:24px;
+      margin-bottom:24px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.06);
     }
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(213,231,213,.55), transparent 28%),
-        radial-gradient(circle at top right, rgba(214,229,240,.45), transparent 22%),
-        var(--bg);
-      color: var(--ink);
+    .brand{
+      font-size:48px;
+      font-weight:700;
+      line-height:1.1;
+      margin:0 0 20px;
+      color:#2e5a47;
     }
 
-    .wrap {
-      width: min(100%, var(--max));
-      margin: 0 auto;
-      padding: 28px 20px 60px;
+    .nav{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
     }
 
-    .hero {
-      background: rgba(252,250,246,.92);
-      border: 1px solid rgba(217,209,196,.7);
-      border-radius: 28px;
-      padding: 28px 24px 24px;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
+    .nav a{
+      display:block;
+      text-align:center;
+      text-decoration:none;
+      color:#2e5a47;
+      background:#ffffff;
+      border:1px solid #d9d1c4;
+      border-radius:14px;
+      padding:12px 10px;
+      font-size:14px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #ebe4d5;
-      color: var(--ink);
-      font-size: 14px;
-      letter-spacing: .08em;
-      margin-bottom: 16px;
+    .nav a:hover{
+      background:#f2ede3;
     }
 
-    h1 {
-      font-size: clamp(34px, 6vw, 62px);
-      line-height: 1.08;
-      margin: 0 0 20px;
-      font-weight: 700;
+    .page{
+      margin-bottom:28px;
+      background:#fcfaf6;
+      border:1px solid #d9d1c4;
+      border-radius:20px;
+      padding:16px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.06);
     }
 
-    .nav {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
+    .page img{
+      width:100%;
+      display:block;
+      border-radius:12px;
     }
 
-    .nav-link {
-      text-decoration: none;
-      color: var(--ink);
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px 14px;
-      font-size: 14px;
-      transition: transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 3px 10px rgba(65,54,35,.04);
-      text-align: center;
-    }
-
-    .nav-link:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(65,54,35,.08);
-    }
-
-    .grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .page-card {
-      background: rgba(252,250,246,.93);
-      border: 1px solid rgba(217,209,196,.8);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .page-head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .page-num {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #ebe4d5;
-      font-weight: 700;
-      color: var(--ink);
-      flex-shrink: 0;
-    }
-
-    .page-head h2 {
-      margin: 0;
-      font-size: clamp(20px, 3vw, 28px);
-    }
-
-    .page-image {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-      border: 1px solid rgba(217,209,196,.8);
-      background: white;
-    }
-
-    .footer {
-      text-align: center;
-      color: #7a8b7f;
-      font-size: 14px;
-      margin-top: 24px;
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding: 22px 16px 18px;
+    @media (max-width:768px){
+      .brand{
+        font-size:34px;
       }
-
-      .page-card {
-        padding: 12px;
+      .nav{
+        grid-template-columns:repeat(2,1fr);
       }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header class="hero">
-      <span class="eyebrow">REREAD STUDIO · DIGITAL</span>
-      <h1>循书集｜数字型录</h1>
 
-      <nav class="nav">
-        <a href="#page-1" class="nav-link">01 封面</a>
-        <a href="#page-2" class="nav-link">02 目录</a>
-        <a href="#page-3" class="nav-link">03 品牌介绍</a>
-        <a href="#page-4" class="nav-link">04 核心服务</a>
-        <a href="#page-5" class="nav-link">05 阅读体验</a>
-        <a href="#page-6" class="nav-link">06 用户故事</a>
-        <a href="#page-7" class="nav-link">07 使用方式</a>
-        <a href="#page-8" class="nav-link">08 联系我们</a>
-      </nav>
-    </header>
+    <div class="top">
+      <h1 class="brand">循书集｜数字型录</h1>
+      <div class="nav">
+        <a href="#p1">01 封面</a>
+        <a href="#p2">02 目录</a>
+        <a href="#p3">03 品牌介绍</a>
+        <a href="#p4">04 核心服务</a>
+        <a href="#p5">05 阅读体验</a>
+        <a href="#p6">06 用户故事</a>
+        <a href="#p7">07 使用方式</a>
+        <a href="#p8">08 联系我们</a>
+      </div>
+    </div>
 
-    <main class="grid">
-      <section class="page-card" id="page-1">
-        <div class="page-head">
-          <span class="page-num">01</span>
-          <h2>封面</h2>
-        </div>
-        <img src="page_1.png" alt="循书集页面1" class="page-image" />
-      </section>
+    <div class="page" id="p1"><img src="page_1.png" alt="page 1"></div>
+    <div class="page" id="p2"><img src="page_2.png" alt="page 2"></div>
+    <div class="page" id="p3"><img src="page_3.png" alt="page 3"></div>
+    <div class="page" id="p4"><img src="page_4.png" alt="page 4"></div>
+    <div class="page" id="p5"><img src="page_5.png" alt="page 5"></div>
+    <div class="page" id="p6"><img src="page_6.png" alt="page 6"></div>
+    <div class="page" id="p7"><img src="page_7.png" alt="page 7"></div>
+    <div class="page" id="p8"><img src="page_8.png" alt="page 8"></div>
 
-      <section class="page-card" id="page-2">
-        <div class="page-head">
-          <span class="page-num">02</span>
-          <h2>目录</h2>
-        </div>
-        <img src="page_2.png" alt="循书集页面2" class="page-image" />
-      </section>
-
-      <section class="page-card" id="page-3">
-        <div class="page-head">
-          <span class="page-num">03</span>
-          <h2>品牌介绍</h2>
-        </div>
-        <img src="page_3.png" alt="循书集页面3" class="page-image" />
-      </section>
-
-      <section class="page-card" id="page-4">
-        <div class="page-head">
-          <span class="page-num">04</span>
-          <h2>核心服务</h2>
-        </div>
-        <img src="page_4.png" alt="循书集页面4" class="page-image" />
-      </section>
-
-      <section class="page-card" id="page-5">
-        <div class="page-head">
-          <span class="page-num">05</span>
-          <h2>阅读体验</h2>
-        </div>
-        <img src="page_5.png" alt="循书集页面5" class="page-image" />
-      </section>
-
-      <section class="page-card" id="page-6">
-        <div class="page-head">
-          <span class="page-num">06</span>
-          <h2>用户故事</h2>
-        </div>
-        <img src="page_6.png" alt="循书集页面6" class="page-image" />
-      </section>
-
-      <section class="page-card" id="page-7">
-        <div class="page-head">
-          <span class="page-num">07</span>
-          <h2>使用方式</h2>
-        </div>
-        <img src="page_7.png" alt="循书集页面7" class="page-image" />
-      </section>
-
-      <section class="page-card" id="page-8">
-        <div class="page-head">
-          <span class="page-num">08</span>
-          <h2>联系我们</h2>
-        </div>
-        <img src="page_8.png" alt="循书集页面8" class="page-image" />
-      </section>
-    </main>
-
-    <p class="footer">© 循书集 · REREAD STUDIO</p>
   </div>
 </body>
 </html>
